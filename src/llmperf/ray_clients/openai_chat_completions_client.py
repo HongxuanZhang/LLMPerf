@@ -56,9 +56,9 @@ class OpenAIChatCompletionsClient(LLMClient):
         headers = {"Authorization": f"Bearer {key}"}
         if not address:
             raise ValueError("No host provided.")
-        if not address.endswith("/"):
-            address = address + "/"
-        address += "chat/completions"
+        # if not address.endswith("/"):
+        #    address = address + "/"
+        # address += "chat/completions"
         try:
             with requests.post(
                 address,
