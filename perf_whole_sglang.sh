@@ -1,6 +1,8 @@
 export OPENAI_API_KEY="random"
 export OPENAI_API_BASE="http://localhost:46221/v1/chat/completions"
 
+store_dir=${1:-"GPU"}
+
 # 定义 concurrent_requests 和 mean-input-tokens 的列表
 concurrent_requests_list=(1 2 4 8 16 20)
 mean_input_tokens_list=(550 1000  3500)
@@ -11,8 +13,15 @@ for concurrent_requests in "${concurrent_requests_list[@]}"; do
         # 计算总请求数
         total_requests=$(( 4 * concurrent_requests ))
 
-        # 输出文件名
-        output_file="result_outputs/requests_${concurrent_requests}_tokens_${mean_input_tokens}.txt"
+        output_dir="result_outputs/${store_dir}"
+        output_file="${output_dir}/requests_${concurrent_requests}_tokens_${mean_input_tokens}.txt"
+
+        if [ ! -d "$output_dir" ]; then
+            echo "Directory $output_dir does not exist. Creating it now."
+            mkdir -p "$output_dir"
+        else
+            echo "Directory $output_dir already exists."
+        fi
 
         # 打印组合的参数
         echo "Running with Concurrent Requests: $concurrent_requests, Mean Input Tokens: $mean_input_tokens"
@@ -36,3 +45,4 @@ for concurrent_requests in "${concurrent_requests_list[@]}"; do
         echo "Completed with Concurrent Requests: $concurrent_requests, Mean Input Tokens: $mean_input_tokens"
     done
 done
+
