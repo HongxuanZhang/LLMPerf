@@ -1,0 +1,77 @@
+You are using the default legacy behaviour of the <class 'transformers.models.llama.tokenization_llama_fast.LlamaTokenizerFast'>. This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=False`. This should only be set if you understand what it means, and thoroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565 - if you loaded a llama tokenizer from a GGUF file you can ignore this message.
+2024-09-24 20:18:32,795	WARNING utils.py:580 -- Detecting docker specified CPUs. In previous versions of Ray, CPU detection in containers was incorrect. Please ensure that Ray has enough CPUs allocated. As a temporary workaround to revert to the prior behavior, set `RAY_USE_MULTIPROCESSING_CPU_COUNT=1` as an env var before starting Ray. Set the env var: `RAY_DISABLE_DOCKER_CPU_WARNING=1` to mute this warning.
+2024-09-24 20:18:32,795	WARNING utils.py:592 -- Ray currently does not support initializing Ray with fractional cpus. Your num_cpus will be truncated from 61.43999 to 61.
+2024-09-24 20:18:32,954	INFO worker.py:1786 -- Started a local Ray instance.
+  0%|          | 0/32 [00:00<?, ?it/s] 25%|██▌       | 8/32 [00:03<00:10,  2.21it/s] 50%|█████     | 16/32 [00:06<00:06,  2.58it/s] 75%|███████▌  | 24/32 [00:08<00:02,  2.89it/s]100%|██████████| 32/32 [00:10<00:00,  3.20it/s]100%|██████████| 32/32 [00:10<00:00,  2.96it/s]
+\Results for token benchmark for llama2-7b-chat queried with the openai api.
+
+inter_token_latency_s
+    p25 = 0.014468039362569808
+    p50 = 0.016174473515361634
+    p75 = 0.01773797850899665
+    p90 = 0.018369413182342986
+    p95 = 0.01846226683258145
+    p99 = 0.01863263370041934
+    mean = 0.015963553527520664
+    min = 0.01295747842946269
+    max = 0.018692304600450255
+    stddev = 0.0019785345151337105
+ttft_s
+    p25 = 0.056205398970632814
+    p50 = 0.3460870289709419
+    p75 = 0.7102384187746793
+    p90 = 0.8050038210116327
+    p95 = 0.8109384339506505
+    p99 = 0.822555958549492
+    mean = 0.42985843046153605
+    min = 0.03076066798530519
+    max = 0.8251287049497478
+    stddev = 0.3122163112265862
+end_to_end_latency_s
+    p25 = 2.071724342997186
+    p50 = 2.4043233429838438
+    p75 = 2.705789653264219
+    p90 = 2.7545389659062494
+    p95 = 2.817140974258655
+    p99 = 2.838028855313896
+    mean = 2.381715773619362
+    min = 1.8086370669770986
+    max = 2.8465446879854426
+    stddev = 0.340101934564312
+request_output_throughput_token_per_s
+    p25 = 56.36904014820051
+    p50 = 61.93310393872352
+    p75 = 69.2681200659461
+    p90 = 75.33155507295598
+    p95 = 76.1023269657858
+    p99 = 76.83977241273645
+    mean = 63.6168638516486
+    min = 53.49094838116884
+    max = 77.16415181679535
+    stddev = 8.2187070551586
+number_input_tokens
+    p25 = 471.5
+    p50 = 570.0
+    p75 = 616.75
+    p90 = 770.6000000000003
+    p95 = 881.7499999999999
+    p99 = 1014.6100000000001
+    mean = 562.53125
+    min = 175
+    max = 1036
+    stddev = 173.21550708629206
+number_output_tokens
+    p25 = 143.0
+    p50 = 149.0
+    p75 = 153.75
+    p90 = 160.0
+    p95 = 161.0
+    p99 = 161.69
+    mean = 149.0
+    min = 131
+    max = 162
+    stddev = 8.052248734199619
+Number Of Errored Requests: 0
+Overall Output Throughput: 440.3073397046322
+Number Of Completed Requests: 32
+Completed Requests Per Minute: 177.30496900857673
